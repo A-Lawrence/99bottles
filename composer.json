@@ -1,0 +1,21 @@
+{
+    "name": "alawrence/99bottles",
+    "description": "99 Bottles of Bear Song",
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "leanphp/phpspec-code-coverage": "^4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Anthony Lawrence",
+            "email": "artisan@anthonylawrence.me.uk"
+        }
+    ]
+}
