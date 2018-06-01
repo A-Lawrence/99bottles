@@ -4,14 +4,12 @@ class BeerSong
 {
     public function verse($number)
     {
-        $bnum = new BottleNumber($number);
-        $nnum = new BottleNumber($bnum->successor());
+        $bottleNumber     = BottleNumber::factory($number);
 
-        return ucfirst($bnum->quantity()) . " {$bnum->container()} of beer on the wall, " .
-            "{$bnum->quantity()} {$bnum->container()} of beer." . PHP_EOL .
-            "{$bnum->action()}, " .
-            "{$nnum->quantity()} {$nnum->container()} of beer on the wall." .
-            PHP_EOL;
+        return ucfirst($bottleNumber) . " of beer on the wall, " .
+            "{$bottleNumber} of beer." . PHP_EOL .
+            "{$bottleNumber->action()}, " .
+            "{$bottleNumber->successor()} of beer on the wall." . PHP_EOL;
     }
 
     public function verses($start, $end)

@@ -9,48 +9,44 @@ class BottleNumber
         $this->number = $number;
     }
 
-    public function container()
+    public static function factory($number)
     {
-        if ($this->number == 1) {
-            return "bottle";
+        $class = "BottleNumber" . $number;
+
+        if(class_exists($class)){
+            return new $class($number);
         }
 
+        return new BottleNumber($number);
+    }
+
+    public function container()
+    {
         return "bottles";
     }
 
     public function pronoun()
     {
-        if ($this->number == 1) {
-            return "it";
-        }
-
         return "one";
     }
 
     public function quantity()
     {
-        if ($this->number == 0) {
-            return "no more";
-        }
-
         return $this->number;
     }
 
     public function action()
     {
-        if ($this->number == 0) {
-            return "Go to the store and buy some more";
-        }
-
         return "Take {$this->pronoun()} down and pass it around";
     }
 
     public function successor()
     {
-        if ($this->number == 0) {
-            return 99;
-        }
+        return BottleNumber::factory($this->number - 1);
+    }
 
-        return $this->number - 1;
+    public function __toString()
+    {
+        return $this->quantity() . " " . $this->container();
     }
 }
