@@ -58,5 +58,4 @@ class BeerSong
 
         return "bottles";
     }
-
 }
