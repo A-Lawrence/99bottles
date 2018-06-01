@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var phpspec = require('gulp-phpunit');
+var phpunit = require('gulp-phpunit');
 var run = require('gulp-run');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
@@ -7,7 +7,6 @@ var path = require('path');
 
 gulp.task('test', function() {
     gulp.src('tests/**/*.php')
-        .pipe(run('clear'))
         .pipe(phpunit('', { notify: true }))
         .on('error', notify.onError({
             title: "Fatal blow...",
@@ -22,7 +21,7 @@ gulp.task('test', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch(['tests/**/*.php', 'tests/**/*.php'], ['test']);
+    gulp.watch(['tests/**/*.php', 'src/**/*.php'], ['test']);
 });
 
 gulp.task('default', ['test', 'watch']);
