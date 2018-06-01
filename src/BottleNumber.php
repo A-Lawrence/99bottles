@@ -13,7 +13,7 @@ class BottleNumber
     {
         $class = "BottleNumber" . $number;
 
-        if(class_exists($class)){
+        if (class_exists($class)) {
             return new $class($number);
         }
 
