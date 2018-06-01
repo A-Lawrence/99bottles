@@ -7,7 +7,7 @@ var path = require('path');
 
 gulp.task('test', function() {
     gulp.src('tests/**/*.php')
-        .pipe(phpunit('', { notify: true }))
+        .pipe(phpunit('', { notify: false }))
         .on('error', notify.onError({
             title: "Fatal blow...",
             message: "If you're not failing, you're not trying hard enough.",
